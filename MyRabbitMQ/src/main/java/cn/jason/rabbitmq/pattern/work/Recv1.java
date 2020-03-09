@@ -3,13 +3,15 @@ package cn.jason.rabbitmq.pattern.work;
 import cn.jason.rabbitmq.pattern.ConnectionUtil;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.QueueingConsumer;
+import com.rabbitmq.client.DeliverCallback;
+
+import java.nio.charset.StandardCharsets;
 
 /**
- * @ClassName: Recv1
- * @Author: Jason
- * @Date: 2020/3/3 22:51
- * @Description: TODO   消费者1
+ * @className: Recv1
+ * @author: Jason
+ * @date: 2020/3/3 22:51
+ * @description: TODO   消费者1
  */
 public class Recv1 {
 
@@ -28,19 +30,18 @@ public class Recv1 {
         channel.basicQos(1);
 
         // 定义队列的消费者
-        QueueingConsumer consumer = new QueueingConsumer(channel);
-        // 监听队列，false表示手动返回完成状态，true表示自动
-        channel.basicConsume(QUEUE_NAME, false, consumer);
-
-        // 获取消息
-        while (true) {
-            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
-            String message = new String(delivery.getBody());
-            System.out.println(" [y] Received '" + message + "'");
-            //休眠
-            Thread.sleep(10);
-            // 返回确认状态，注释掉表示使用自动确认模式
-            channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
-        }
+        DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
+            System.out.println(" 《Work Recv1 》 Received '" + message + "'");
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
+            }
+        };
+        // 监听队列，手动返回完成
+        channel.basicConsume(QUEUE_NAME, false, deliverCallback,consumerTag -> {});
     }
 }

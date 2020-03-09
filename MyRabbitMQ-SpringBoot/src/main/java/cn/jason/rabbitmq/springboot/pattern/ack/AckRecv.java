@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 /**
- * @ClassName: AckRecv
- * @Author: Jason
- * @Date: 2020/3/8 18:36
- * @Description: TODO
+ * @className: AckRecv
+ * @author: Jason
+ * @date: 2020/3/8 18:36
+ * @description: TODO
  */
 @Component
 @RabbitListener(

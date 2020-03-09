@@ -14,15 +14,15 @@ import java.nio.file.Paths;
 import java.util.List;
 
 /**
- * @ClassName: FileIO
- * @Author: Jason
- * @Date: 2019/11/19 22:35
- * @Description: TODO
+ * @className: FileIO
+ * @author: Jason
+ * @date: 2019/11/19 22:35
+ * @description: TODO
  */
-public class FileIO {
+public class FileIo {
     public static void main(String[] args) throws Exception {
 //        readFileWithIO();
-        URL url = FileIO.class.getClassLoader().getResource("example/IOTestFile.txt");
+        URL url = FileIo.class.getClassLoader().getResource("example/IOTestFile.txt");
         readFileWithNio(url.getFile());
         readFileWithNioBigData(url.getFile());
 //        readDirectory("C://");
@@ -33,7 +33,7 @@ public class FileIO {
         InputStreamReader isr = null;
         BufferedReader br = null;
         try {
-            URL url = FileIO.class.getClassLoader().getResource("example/IOTestFile.txt");
+            URL url = FileIo.class.getClassLoader().getResource("example/IOTestFile.txt");
 //            in = new BufferedInputStream(new FileInputStream("example/IOTestFile.txt"));
             in = url.openStream();
             if (in == null) {
@@ -75,7 +75,7 @@ public class FileIO {
             }
         };
         readerListener.setReadColNum(100000);
-        NIOFileReader nioFileReader = new NIOFileReader(readerListener, "utf-8");
+        NioFileReader nioFileReader = new NioFileReader(readerListener, "utf-8");
         nioFileReader.readFileByLine(path);
     }
 
@@ -107,12 +107,21 @@ public class FileIO {
             pathStr = "C:\\";
         }
         Path path = Paths.get(pathStr);
-        System.out.println("文件名：" + path.getFileName());//文件或文件夹名称
-        System.out.println("路径中名称元素的数量：" + path.getNameCount());//文件路径级别
-        System.out.println("父目录路径：" + path.getParent());//父路径
-        System.out.println("ROOT：" + path.getRoot());//根路径
+
+        //文件或文件夹名称
+        System.out.println("文件名：" + path.getFileName());
+
+        //文件路径级别
+        System.out.println("路径中名称元素的数量：" + path.getNameCount());
+
+        //父路径
+        System.out.println("父目录路径：" + path.getParent());
+
+        //根路径
+        System.out.println("ROOT：" + path.getRoot());
+
         //遍历目录，过滤
-//        DirectoryStream<Path> paths = Files.newDirectoryStream(path, "*.zip");
+        /* DirectoryStream<Path> paths = Files.newDirectoryStream(path, "*.zip");*/
         DirectoryStream<Path> paths = Files.newDirectoryStream(path);
         for (Path p : paths) {
             File f = p.toFile();

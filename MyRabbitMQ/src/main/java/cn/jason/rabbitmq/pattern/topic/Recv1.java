@@ -3,13 +3,15 @@ package cn.jason.rabbitmq.pattern.topic;
 import cn.jason.rabbitmq.pattern.ConnectionUtil;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.QueueingConsumer;
+import com.rabbitmq.client.DeliverCallback;
+
+import java.nio.charset.StandardCharsets;
 
 /**
- * @ClassName: Recv1
- * @Author: Jason
- * @Date: 2020/3/4 00:28
- * @Description: TODO
+ * @className: Recv1
+ * @author: Jason
+ * @date: 2020/3/4 00:28
+ * @description: TODO
  */
 public class Recv1 {
     private final static String QUEUE_NAME = "test_queue_topic_work_1";
@@ -24,7 +26,8 @@ public class Recv1 {
 
         // 声明队列
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-
+        // 声明exchange
+        channel.exchangeDeclare(EXCHANGE_NAME, "topic");
         // 绑定队列到交换机
         channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "*.*.*");
 
@@ -32,18 +35,12 @@ public class Recv1 {
         channel.basicQos(1);
 
         // 定义队列的消费者
-        QueueingConsumer consumer = new QueueingConsumer(channel);
-        // 监听队列，手动返回完成
-        channel.basicConsume(QUEUE_NAME, false, consumer);
-
-        // 获取消息
-        while (true) {
-            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
-            String message = new String(delivery.getBody());
-            System.out.println(" [Recv_x] Received '" + message + "'");
-            Thread.sleep(10);
-
+        DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
+            System.out.println(" 《topic Recv1 》 Received '" + message + "'");
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
-        }
+        };
+        // 监听队列，手动返回完成
+        channel.basicConsume(QUEUE_NAME, false, deliverCallback, consumerTag -> {});
     }
 }

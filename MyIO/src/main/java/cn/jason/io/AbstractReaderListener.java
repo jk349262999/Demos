@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created with Okey
- * User: Okey
- * Date: 13-3-14
- * Time: 下午3:19
+ * AbstractReaderListener
  * NIO逐行读数据回调方法
+ * @author: Jason
+ * @date: 2020/3/10
  */
 public abstract class AbstractReaderListener {
 
-    // 一次读取行数，默认为500
+    /**
+     * 一次读取行数，默认为500
+     */
     private int readColNum = 500;
 
     private List<String> list = new ArrayList<String>();

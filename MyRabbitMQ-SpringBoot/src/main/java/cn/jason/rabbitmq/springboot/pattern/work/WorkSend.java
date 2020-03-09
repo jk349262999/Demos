@@ -10,8 +10,8 @@ import java.util.Date;
 /**
  * WorkSend
  *
- * @Author: Jason
- * @Date: 2020/3/9
+ * @author: Jason
+ * @date: 2020/3/9
  */
 @Component
 public class WorkSend {
@@ -20,7 +20,8 @@ public class WorkSend {
 
 
     public void sendHello(int i) {
-        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());//24小时制
+        //24小时制
+        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         String context = "hello " + i + " " + date;
         System.out.println("Work_Sender : " + context);
         //简单对列的情况下routingKey即为Q名

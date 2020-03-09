@@ -5,16 +5,16 @@ import com.rabbitmq.client.ConnectionFactory;
 
 
 /**
- * @Description:  TODO ConnectionUtil
- * @Author: Jason
- * @Date: 2020/3/9
+ * @description:  TODO ConnectionUtil
+ * @author: Jason
+ * @date: 2020/3/9
  */
 public class ConnectionUtil {
 
     /**
      *
-     * @Author: Jason
-     * @Date: 2020/3/9
+     * @author: Jason
+     * @date: 2020/3/9
      * @Param: 
  * @param null
      * @Return:

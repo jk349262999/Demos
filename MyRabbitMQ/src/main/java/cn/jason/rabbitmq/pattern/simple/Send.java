@@ -5,10 +5,10 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
 /**
- * @ClassName: Send
- * @Author: Jason
- * @Date: 2020/3/3 22:48
- * @Description: TODO   生产者发送消息到队列
+ * @className: Send
+ * @author: Jason
+ * @date: 2020/3/3 22:48
+ * @description: TODO   生产者发送消息到队列
  */
 public class Send {
     private final static String QUEUE_NAME = "q_test_01";
@@ -25,7 +25,7 @@ public class Send {
         // 消息内容
         String message = "Hello World!";
         channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
-        System.out.println(" [x] Sent '" + message + "'");
+        System.out.println(" 《simple Send 》 Sent '" + message + "'");
         //关闭通道和连接
         channel.close();
         connection.close();

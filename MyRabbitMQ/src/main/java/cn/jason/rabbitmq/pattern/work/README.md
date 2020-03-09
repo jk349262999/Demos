@@ -1,15 +1,15 @@
 # 公平转换竞争：
 > 取消注释
- 
+
+ > 改为手动确认：
+`// 监听队列，false表示手动返回完成状态，true表示自动`
+`channel.basicConsume(QUEUE_NAME, false, deliverCallback,consumerTag -> {});`
+>
 `// 同一时刻服务器只会发一条消息给消费者`
 `channel.basicQos(1); `
 
-`//开启这行 表示使用手动确认模式`
+`//开启这行 表示使用手动确认`
 `channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);`
-
-> 同时改为手动确认：
-`// 监听队列，false表示手动返回完成状态，true表示自动`
-`channel.basicConsume(QUEUE_NAME, false, consumer);`
 
 - 模式1：自动确认
 > 只要消息从队列中获取，无论消费者获取到消息后是否成功消息，都认为是消息已经成功消费。

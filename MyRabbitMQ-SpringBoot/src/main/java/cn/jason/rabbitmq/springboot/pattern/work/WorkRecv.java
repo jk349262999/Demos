@@ -6,10 +6,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 /**
- * @ClassName: Recv
- * @Author: Jason
- * @Date: 2020/3/5 10:59
- * @Description: TODO   接收者
+ * @className: Recv
+ * @author: Jason
+ * @date: 2020/3/5 10:59
+ * @description: TODO   接收者
  */
 @Component
 public class WorkRecv {

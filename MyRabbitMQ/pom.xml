@@ -16,7 +16,7 @@
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
-            <version>4.8.0</version>
+            <version>5.1.2</version>
         </dependency>
         <!--解决Failed to load class "org.slf4j.impl.StaticLoggerBinder"错误-->
         <dependency>

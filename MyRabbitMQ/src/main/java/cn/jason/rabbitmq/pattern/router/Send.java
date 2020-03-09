@@ -5,10 +5,10 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
 /**
- * @ClassName: Send
- * @Author: Jason
- * @Date: 2020/3/3 23:54
- * @Description: TODO 消息的生产者（看作是后台系统） 向交换机中发送消息。
+ * @className: Send
+ * @author: Jason
+ * @date: 2020/3/3 23:54
+ * @description: TODO 消息的生产者（看作是后台系统） 向交换机中发送消息。
  */
 public class Send {
     private final static String EXCHANGE_NAME = "test_exchange_direct";
@@ -24,11 +24,11 @@ public class Send {
         // 消息内容
         String message = "查看。。。。。";
         channel.basicPublish(EXCHANGE_NAME, "select", null, message.getBytes());
-        System.out.println(" [x] Sent '" + message + "'");
+        System.out.println(" 《router Send 》 Sent '" + message + "'");
 
         message = "删除。。。。。";
         channel.basicPublish(EXCHANGE_NAME, "update", null, message.getBytes());
-        System.out.println(" [x] Sent '" + message + "'");
+        System.out.println(" 《router Send 》 Sent '" + message + "'");
 
         channel.close();
         connection.close();

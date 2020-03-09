@@ -5,10 +5,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 /**
- * @ClassName: TopicRecv2
- * @Author: Jason
- * @Date: 2020/3/8 18:13
- * @Description: TODO
+ * @className: TopicRecv2
+ * @author: Jason
+ * @date: 2020/3/8 18:13
+ * @description: TODO
  */
 @Component
 @RabbitListener(queues = TopicRabbitConfig.TOPIC_QUEUE2)

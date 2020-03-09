@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @ClassName: AckRabbitConfig
- * @Author: Jason
- * @Date: 2020/3/8 18:35
- * @Description: TODO
+ * @className: AckRabbitConfig
+ * @author: Jason
+ * @date: 2020/3/8 18:35
+ * @description: TODO
  */
 @Configuration
 public class AckRabbitConfig {

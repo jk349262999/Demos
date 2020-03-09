@@ -4,17 +4,33 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class NIOFileReader {
+/**
+ * NIOFileReader
+ *
+ * @author: Jason
+ * @date: 2020/3/10
+ */
+public class NioFileReader {
 
-    // 每次读取文件内容缓冲大小,默认为1024个字节
+    /**
+     * 每次读取文件内容缓冲大小,默认为1024个字节
+     */
     private int bufSize = 1024;
-    // 换行符
+    /**
+     * 换行符
+     */
     private byte key = "\n".getBytes()[0];
-    // 当前行数
+    /**
+     * 当前行数
+     */
     private long lineNum = 0;
-    // 文件编码,默认为gb2312
+    /**
+     * 文件编码,默认为gb2312
+     */
     private String encode = "gb2312";
-    // 具体业务逻辑监听器
+    /**
+     * 具体业务逻辑监听器
+     */
     private AbstractReaderListener readerListener;
 
     /**
@@ -22,7 +38,7 @@ public class NIOFileReader {
      *
      * @param readerListener
      */
-    public NIOFileReader(AbstractReaderListener readerListener) {
+    public NioFileReader(AbstractReaderListener readerListener) {
         this.readerListener = readerListener;
     }
 
@@ -32,7 +48,7 @@ public class NIOFileReader {
      * @param readerListener
      * @param encode
      */
-    public NIOFileReader(AbstractReaderListener readerListener, String encode) {
+    public NioFileReader(AbstractReaderListener readerListener, String encode) {
         this.encode = encode;
         this.readerListener = readerListener;
     }

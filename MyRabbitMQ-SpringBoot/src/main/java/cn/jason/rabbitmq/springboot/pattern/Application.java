@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import javax.swing.*;
 
 /**
- * @ClassName: Application
- * @Author: Jason
- * @Date: 2020/3/5 11:25
- * @Description: TODO
+ * @className: Application
+ * @author: Jason
+ * @date: 2020/3/5 11:25
+ * @description: TODO
  */
 @SpringBootApplication
 public class Application {

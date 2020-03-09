@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 
 
 /**
- * @ClassName: cn.jason.rabbitmq.springboot.pattern.simple
- * @Author: Jason
- * @Date: 2020/3/5 10:47
- * @Description: TODO
+ * @className: cn.jason.rabbitmq.springboot.pattern.simple
+ * @author: Jason
+ * @date: 2020/3/5 10:47
+ * @description: TODO
  */
 @Configuration
 public class SimpleRabbitConfig {

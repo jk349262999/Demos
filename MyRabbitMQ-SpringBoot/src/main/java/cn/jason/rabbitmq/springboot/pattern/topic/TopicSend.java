@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * @ClassName: TopicSend
- * @Author: Jason
- * @Date: 2020/3/8 18:16
- * @Description: TODO
+ * @className: TopicSend
+ * @author: Jason
+ * @date: 2020/3/8 18:16
+ * @description: TODO
  */
 @Component
 public class TopicSend {
