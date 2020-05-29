@@ -14,7 +14,6 @@ import java.util.Date;
  * @date 2019-10-09 17:39:55
  */
 @Data
-//@TableName("t_student")
 @EqualsAndHashCode(callSuper = false)
 public class Student implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -22,7 +21,6 @@ public class Student implements Serializable {
 	/**
 	 * 主键
 	 */
-//	@TableId
 	private String id;
 	/**
 	 * 准考证号

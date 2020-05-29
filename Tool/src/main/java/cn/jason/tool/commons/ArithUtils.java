@@ -7,9 +7,14 @@ import static java.math.BigDecimal.ZERO;
 /**
  * 由于Java的简单类型不能够精确的对浮点数进行运算，这个工具类提供精
  * 确的浮点数运算，包括加减乘除和四舍五入。
+ * 默认除法运算精度
+ * @author jinkai
  */
-public class ArithUtils { //默认除法运算精度
-    private static final int DEF_DIV_SCALE = 2; //这个类不能实例化
+public class ArithUtils {
+    /**
+     * 这个类不能实例化
+     */
+    private static final int DEF_DIV_SCALE = 2;
 
     private ArithUtils() {
     }
@@ -23,10 +28,12 @@ public class ArithUtils { //默认除法运算精度
      */
     public static Double add(Object v1, Object v2) {
         BigDecimal b = new BigDecimal(0);
-        if (v1 != null && !v1.toString().isEmpty())
+        if (v1 != null && !v1.toString().isEmpty()){
             b = b.add(new BigDecimal(v1.toString()));
-        if (v2 != null && !v2.toString().isEmpty())
+        }
+        if (v2 != null && !v2.toString().isEmpty()){
             b = b.add(new BigDecimal(v2.toString()));
+        }
         return b.doubleValue();
     }
 
@@ -39,10 +46,12 @@ public class ArithUtils { //默认除法运算精度
      */
     public static Double sub(Object v1, Object v2) {
         BigDecimal b = new BigDecimal(0);
-        if (v1 != null && !v1.toString().isEmpty())
+        if (v1 != null && !v1.toString().isEmpty()){
             b = b.add(new BigDecimal(v1.toString()));
-        if (v2 != null && !v2.toString().isEmpty())
+        }
+        if (v2 != null && !v2.toString().isEmpty()){
             b = b.subtract(new BigDecimal(v2.toString()));
+        }
         return b.doubleValue();
     }
 
@@ -104,7 +113,7 @@ public class ArithUtils { //默认除法运算精度
         if (scale < 0) {
             throw new IllegalArgumentException("The scale must be a positive integer or zero");
         }
-        BigDecimal b = new BigDecimal(Double.toString(v));
+        BigDecimal b = new BigDecimal(v);
         BigDecimal one = new BigDecimal("1");
         return b.divide(one, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
@@ -115,9 +124,11 @@ public class ArithUtils { //默认除法运算精度
      * @return
      */
     public static boolean checkDivisor(Object v2){
-        if(v2 == null || v2.toString().isEmpty() || (new BigDecimal(v2.toString())).compareTo(ZERO) == 0)
+        if(v2 == null || v2.toString().isEmpty() || (new BigDecimal(v2.toString())).compareTo(ZERO) == 0){
             return false;
-        else
+        }
+        else{
             return true;
+        }
     }
 };    
