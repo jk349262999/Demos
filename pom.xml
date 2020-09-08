@@ -30,6 +30,7 @@
         <module>MyRabbitMQ</module>
         <module>MyRabbitMQ-SpringBoot</module>
         <module>Tool</module>
+        <module>DwonloadJar</module>
     </modules>
 
 
