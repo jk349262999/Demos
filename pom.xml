@@ -14,6 +14,13 @@
         <version>2.0.3.RELEASE</version>
         <relativePath/>
     </parent>
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -21,16 +28,13 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
     <modules>
         <module>MyIO</module>
         <module>MyRabbitMQ</module>
         <module>MyRabbitMQ-SpringBoot</module>
         <module>Tool</module>
-        <module>DwonloadJar</module>
+        <module>DownloadJar</module>
+        <module>Excel</module>
     </modules>
 
 

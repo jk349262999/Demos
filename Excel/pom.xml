@@ -9,25 +9,17 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Tool</artifactId>
-
+    <artifactId>Excel</artifactId>
     <properties>
+        <poi.version>5.4.2</poi.version>
     </properties>
 
     <dependencies>
-        <!-- lombok可使代码更简洁 -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-<!--            <scope>provided</scope>-->
-        </dependency>
-
         <dependency>
             <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.3.5</version>
+            <artifactId>hutool-poi</artifactId>
+            <version>${poi.version}</version>
         </dependency>
-
     </dependencies>
 
 </project>
