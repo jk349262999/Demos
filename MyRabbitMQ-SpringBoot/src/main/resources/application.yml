@@ -1,11 +1,11 @@
 spring:
-  application:
-    name: spirng-boot-rabbitmq
+#  application:
+#    name: spirng-boot-rabbitmq
   rabbitmq:
     host: 127.0.0.1
     port: 5672
-    username: admin
-    password: admin
+    username: user
+    password: user
 logging:
   level:
     org: ERROR
