@@ -14,9 +14,9 @@ public class WorkSendTest {
 
     @Test
     public void sendHello() throws Exception {
-        for (int i=0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
             send.sendHello(i);
         }
-        Thread.sleep(1000*60*5);
+        Thread.sleep(1000 * 60 * 5);
     }
 }

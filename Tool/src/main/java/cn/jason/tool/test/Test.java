@@ -17,7 +17,7 @@ public class Test {
         e.setAge(2);
         list.add(e);
 //        int.class
-        TestEntity res = ListCalculationUtils.totalList(list,TestEntity.class,int.class);
+        TestEntity res = ListCalculationUtils.totalList(list, TestEntity.class, int.class);
 
         System.out.println(res);
 

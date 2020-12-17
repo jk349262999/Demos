@@ -41,6 +41,7 @@ public class Recv2 {
             }
         };
         // 监听队列，手动返回完成
-        channel.basicConsume(QUEUE_NAME, false, deliverCallback,consumerTag -> {});
+        channel.basicConsume(QUEUE_NAME, false, deliverCallback, consumerTag -> {
+        });
     }
 }

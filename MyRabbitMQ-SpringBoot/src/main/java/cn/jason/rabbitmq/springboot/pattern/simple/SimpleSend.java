@@ -19,7 +19,7 @@ public class SimpleSend {
     @Autowired
     private RabbitTemplate template;
 
-    public void sendHello(){
+    public void sendHello() {
         String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         String context = "hello " + date;
         System.out.println("Simple_Sender : " + context);

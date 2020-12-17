@@ -21,8 +21,8 @@ public class AckRabbitConfig {
     static final String KEY_NAME = "AckRabbitKey";
 
     @Bean(FACTORY_NAME)
-    public RabbitListenerContainerFactory myFactory(ConnectionFactory connectionFactory){
-        SimpleRabbitListenerContainerFactory containerFactory=
+    public RabbitListenerContainerFactory myFactory(ConnectionFactory connectionFactory) {
+        SimpleRabbitListenerContainerFactory containerFactory =
                 new SimpleRabbitListenerContainerFactory();
         containerFactory.setConnectionFactory(connectionFactory);
         /*设置消费者的消息确认模式

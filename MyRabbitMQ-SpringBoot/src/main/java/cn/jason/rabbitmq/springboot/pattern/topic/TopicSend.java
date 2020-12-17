@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 public class TopicSend {
     @Autowired
     private RabbitTemplate rabbitTemplate;
+
     public void send() {
         this.rabbitTemplate.convertAndSend(TopicRabbitConfig.TOPIC_EXCHANGE, "topic.message", "Sender : hi, i am message 1[topic.message]");
         this.rabbitTemplate.convertAndSend(TopicRabbitConfig.TOPIC_EXCHANGE, "top.xx", "Sender : hi, i am message 2[top.xx]");

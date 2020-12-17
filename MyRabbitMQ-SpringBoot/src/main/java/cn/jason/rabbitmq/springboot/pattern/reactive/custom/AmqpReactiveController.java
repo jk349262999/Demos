@@ -21,7 +21,7 @@ public class AmqpReactiveController {
 
     private final MessageListenerContainerFactory messageListenerContainerFactory;
 
-    @GetMapping(value = "listener",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "listener", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<String> receiveMessagesFromQueue(@RequestParam String queueName) {
         MessageListenerContainer container = messageListenerContainerFactory.createMessageListenerContainer(queueName);
         Flux<String> f = Flux.create(emitter -> {
@@ -49,7 +49,7 @@ public class AmqpReactiveController {
                 .mergeWith(f);
     }
 
-    @GetMapping(value = "listener2",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "listener2", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<String> receiveMessagesFromQueue2(@RequestParam String queueName) {
         MessageListenerContainer container = messageListenerContainerFactory.createMessageListenerContainer(queueName);
         Flux<String> f = Flux.create(emitter -> {

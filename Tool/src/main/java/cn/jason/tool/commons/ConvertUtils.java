@@ -9,7 +9,8 @@ public class ConvertUtils {
 
     /**
      * 把Object转换为数值类型
-     * @param value 对象
+     *
+     * @param value      对象
      * @param targetType 目标类型
      * @return
      */
@@ -24,8 +25,8 @@ public class ConvertUtils {
             return ((Number) value).doubleValue();
         } else if (BigDecimal.class == targetType) {
             return toBigDecimal(value);
-        }else if(Number.class == targetType){
-            return (Number)value;
+        } else if (Number.class == targetType) {
+            return (Number) value;
         }
         return null;
     }
@@ -45,8 +46,8 @@ public class ConvertUtils {
             return new BigDecimal((Integer) value);
         } else if (value instanceof BigInteger) {
             return new BigDecimal((BigInteger) value);
-        } else if(value instanceof Boolean) {
-            return new BigDecimal((boolean)value ? 1 : 0);
+        } else if (value instanceof Boolean) {
+            return new BigDecimal((boolean) value ? 1 : 0);
         }
 
         //对于Double类型，先要转换为String，避免精度问题

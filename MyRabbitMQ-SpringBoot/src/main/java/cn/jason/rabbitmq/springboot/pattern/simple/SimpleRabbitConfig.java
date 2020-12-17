@@ -20,6 +20,7 @@ public class SimpleRabbitConfig {
 
     /**
      * 声明queue
+     *
      * @return
      */
     @Bean

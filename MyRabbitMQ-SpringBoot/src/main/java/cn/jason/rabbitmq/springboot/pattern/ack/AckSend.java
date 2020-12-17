@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 public class AckSend {
     @Autowired
     private RabbitTemplate rabbitTemplate;
+
     public void send() {
         this.rabbitTemplate.convertAndSend(AckRabbitConfig.EXCHANGE_NAME, AckRabbitConfig.KEY_NAME, " hi, i am message [ack.message]");
     }

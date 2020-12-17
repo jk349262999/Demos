@@ -8,6 +8,7 @@ import static java.math.BigDecimal.ZERO;
  * 由于Java的简单类型不能够精确的对浮点数进行运算，这个工具类提供精
  * 确的浮点数运算，包括加减乘除和四舍五入。
  * 默认除法运算精度
+ *
  * @author jinkai
  */
 public class ArithUtils {
@@ -28,10 +29,10 @@ public class ArithUtils {
      */
     public static Double add(Object v1, Object v2) {
         BigDecimal b = new BigDecimal(0);
-        if (v1 != null && !v1.toString().isEmpty()){
+        if (v1 != null && !v1.toString().isEmpty()) {
             b = b.add(new BigDecimal(v1.toString()));
         }
-        if (v2 != null && !v2.toString().isEmpty()){
+        if (v2 != null && !v2.toString().isEmpty()) {
             b = b.add(new BigDecimal(v2.toString()));
         }
         return b.doubleValue();
@@ -46,10 +47,10 @@ public class ArithUtils {
      */
     public static Double sub(Object v1, Object v2) {
         BigDecimal b = new BigDecimal(0);
-        if (v1 != null && !v1.toString().isEmpty()){
+        if (v1 != null && !v1.toString().isEmpty()) {
             b = b.add(new BigDecimal(v1.toString()));
         }
-        if (v2 != null && !v2.toString().isEmpty()){
+        if (v2 != null && !v2.toString().isEmpty()) {
             b = b.subtract(new BigDecimal(v2.toString()));
         }
         return b.doubleValue();
@@ -95,7 +96,7 @@ public class ArithUtils {
                     "The scale must be a positive integer or zero");
         }
         if (v1 == null || v1.toString().isEmpty() || v2 == null || v2.toString().isEmpty() || (new BigDecimal(v2.toString())).compareTo(ZERO) == 0) {
-            throw new NumberFormatException("param Exception v1: "+v1+",v2: "+v2);
+            throw new NumberFormatException("param Exception v1: " + v1 + ",v2: " + v2);
         }
         BigDecimal b1 = new BigDecimal(v1.toString());
         BigDecimal b2 = new BigDecimal(v2.toString());
@@ -120,14 +121,14 @@ public class ArithUtils {
 
     /**
      * 被除数判断
+     *
      * @param v2
      * @return
      */
-    public static boolean checkDivisor(Object v2){
-        if(v2 == null || v2.toString().isEmpty() || (new BigDecimal(v2.toString())).compareTo(ZERO) == 0){
+    public static boolean checkDivisor(Object v2) {
+        if (v2 == null || v2.toString().isEmpty() || (new BigDecimal(v2.toString())).compareTo(ZERO) == 0) {
             return false;
-        }
-        else{
+        } else {
             return true;
         }
     }

@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * AbstractReaderListener
  * NIO逐行读数据回调方法
+ *
  * @author: Jason
  * @date: 2020/3/10
  */
@@ -36,7 +37,7 @@ public abstract class AbstractReaderListener {
      * @throws Exception
      */
     public void outLine(String lineStr, long lineNum, boolean over) throws Exception {
-        if (null != lineStr){
+        if (null != lineStr) {
             list.add(lineStr);
         }
         if (!over && (lineNum % readColNum == 0)) {

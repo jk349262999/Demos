@@ -25,13 +25,13 @@ import java.util.Map;
 @Slf4j
 public class AmqpAnnotationService {
 
-    @RabbitListener(containerFactory = "reactiveListenerFactory",queuesToDeclare = @Queue("reactive_work2"))
+    @RabbitListener(containerFactory = "reactiveListenerFactory", queuesToDeclare = @Queue("reactive_work2"))
     public void receiveMessages1(@Payload SendMsgModel msg, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) {
         log.info("receiveMessages1.。。");
         Mono.just(msg).map(s -> {
-            log.info("AmqpAnnotationService.receiveMessages1已消费:"+msg);
+            log.info("AmqpAnnotationService.receiveMessages1已消费:" + msg);
             try {
-                channel.basicAck(tag,false);
+                channel.basicAck(tag, false);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -39,13 +39,13 @@ public class AmqpAnnotationService {
         }).subscribe();
     }
 
-    @RabbitListener(containerFactory = "reactiveListenerFactory",queuesToDeclare = @Queue("reactive_work2"))
-    public void receiveMessages2(@Payload SendMsgModel msg,Channel channel,@Header(AmqpHeaders.DELIVERY_TAG) long tag) {
+    @RabbitListener(containerFactory = "reactiveListenerFactory", queuesToDeclare = @Queue("reactive_work2"))
+    public void receiveMessages2(@Payload SendMsgModel msg, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) {
         log.info("receiveMessages2.。。");
         Mono.just(msg).map(s -> {
-            log.info("AmqpAnnotationService.receiveMessages2 已消费:"+msg);
+            log.info("AmqpAnnotationService.receiveMessages2 已消费:" + msg);
             try {
-                channel.basicAck(tag,false);
+                channel.basicAck(tag, false);
             } catch (IOException e) {
                 e.printStackTrace();
             }

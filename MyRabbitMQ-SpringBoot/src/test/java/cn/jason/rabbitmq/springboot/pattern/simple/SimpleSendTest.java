@@ -17,6 +17,6 @@ public class SimpleSendTest {
     @Test
     public void hello() throws Exception {
         simpleSend.sendHello();
-        Thread.sleep(30*1000);
+        Thread.sleep(30 * 1000);
     }
 }

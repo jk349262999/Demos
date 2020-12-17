@@ -8,9 +8,8 @@ import java.util.List;
 public class ListCalculationUtils {
 
     /**
-     *
-     * @param list list集合
-     * @param clazz list内部泛型
+     * @param list       list集合
+     * @param clazz      list内部泛型
      * @param tarClasses 合计完成的实体
      * @param <T>
      * @return
@@ -36,7 +35,7 @@ public class ListCalculationUtils {
                 String setMethodName = "set" + fieldName;
                 Method setMethod = clazz.getMethod(setMethodName, type);
                 ConvertUtils convertNumber = new ConvertUtils();
-                Object n = convertNumber.convertNumber(d,type);
+                Object n = convertNumber.convertNumber(d, type);
                 //类型转换
                 setMethod.invoke(res, n);
             }

@@ -30,6 +30,7 @@ public class Recv {
             System.out.println(" 《simple 》 Received '" + message + "'");
         };
         // 监听队列
-        channel.basicConsume(QUEUE_NAME, true, deliverCallback,consumerTag -> { });
+        channel.basicConsume(QUEUE_NAME, true, deliverCallback, consumerTag -> {
+        });
     }
 }

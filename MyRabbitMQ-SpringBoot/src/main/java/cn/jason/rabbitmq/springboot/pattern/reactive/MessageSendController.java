@@ -20,13 +20,13 @@ import reactor.core.publisher.Mono;
 public class MessageSendController {
     private final AmqpTemplate amqpTemplate;
 
-    @PostMapping(value = "queue/{name}",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @PostMapping(value = "queue/{name}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Mono<ResponseEntity<?>> sendMessageToQueue(@PathVariable String name, @RequestBody String payload) {
         return Mono.fromCallable(() -> {
             SendMsgModel sendMsgModel = new SendMsgModel();
             sendMsgModel.setMsg(name);
             sendMsgModel.setMsg2(payload);
-            amqpTemplate.convertAndSend(name,sendMsgModel);
+            amqpTemplate.convertAndSend(name, sendMsgModel);
             return ResponseEntity.accepted().build();
         });
     }

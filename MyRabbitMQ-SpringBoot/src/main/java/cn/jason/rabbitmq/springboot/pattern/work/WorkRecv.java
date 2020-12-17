@@ -18,13 +18,13 @@ public class WorkRecv {
      * queuesToDeclare： 声明并绑定queue
      * quque：绑定
      */
-    @RabbitListener(containerFactory = "workListenerFactory",queuesToDeclare = @Queue("work_queue"))
+    @RabbitListener(containerFactory = "workListenerFactory", queuesToDeclare = @Queue("work_queue"))
     public void onMessage1(String msg) throws InterruptedException {
         Thread.sleep(100);
         System.out.println("Work_Receiver1  : " + msg);
     }
 
-    @RabbitListener(containerFactory = "workListenerFactory",queuesToDeclare = @Queue("work_queue"))
+    @RabbitListener(containerFactory = "workListenerFactory", queuesToDeclare = @Queue("work_queue"))
     public void onMessage2(String msg) throws InterruptedException {
         Thread.sleep(200);
         System.out.println("Work_Receiver2  : " + msg);
