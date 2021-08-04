@@ -3,6 +3,7 @@ package cn.jason.tool.test;
 import cn.jason.tool.commons.ListCalculationUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Test {
@@ -20,7 +21,8 @@ public class Test {
         TestEntity res = ListCalculationUtils.totalList(list, TestEntity.class, int.class);
 
         System.out.println(res);
-
+        List<String> ss = Arrays.asList("aa","bb");
+        System.out.println(ss);
 //        int a = 1;
 //        System.out.println((Number) a);
 //        int x = (int) Convert.convert(1.2d);
@@ -32,7 +34,9 @@ public class Test {
 //        System.out.println( Convert.convert(int.class,d));
 //        Field[] fields = TestEntity.class.getDeclaredFields();
 //        for (Field field : fields) {
-//            System.out.println("name: "+ field.getName() +"type: "+field.getType());
+//            System.out.println("name: ", field.getName() ,"type: ",field.getType());
 //        }
     }
+    
+//    String s =
 }
